@@ -1,0 +1,38 @@
+import React, { useState } from "react";
+import tshirt from "../images/tshirt.png";
+import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import blackWhiteShirt from "../images/blackWhiteShirt.jpeg";
+
+const ProductCard = ({ id, image }) => {
+  const [isHovering, setIsHovering] = useState(false);
+  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+    setShow(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+    setShow(false);
+  };
+
+  return (
+    <div
+      onClick={() => navigate(`/product/${id}`)}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      className="relative flex flex-col items-center border h-[25rem] cursor-pointer"
+    >
+      <img src={image} alt="" className="w-full h-full"></img>
+
+      {show && (
+        <div className="absolute top-0 w-full h-full bg-cyan-500 bg-opacity-10 flex items-end justify-center py-2"></div>
+      )}
+    </div>
+  );
+};
+
+export default ProductCard;
