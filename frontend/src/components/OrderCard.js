@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import tshirt from "../images/tshirt.png";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import OrderSummary from "./OrderSummary";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   decreaseQuantity,
   getCart,
   increaseQuantity,
   removeFromCart,
-  selectCart,
 } from "../redux/cartSlice";
 import { selectIsLoggedIn } from "../redux/authSlice";
 import axios from "axios";
-import blackWhiteShirt from "../images/blackWhiteShirt.jpeg";
 import { HiMinus, HiOutlinePlusSm } from "react-icons/hi";
 import Confirm from "../modals/Confirm";
 
