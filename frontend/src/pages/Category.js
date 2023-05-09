@@ -117,7 +117,7 @@ const Category = () => {
         ))}
       </div>
 
-      {pageCount > 1 && (
+      {pageCount > 1 && filteredProducts.length > 0 && (
         <div className="pagination">
           <ReactPaginate
             previousLabel={"prev"}
