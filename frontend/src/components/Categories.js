@@ -14,7 +14,7 @@ const Categories = () => {
   return (
     <section
       id="categories"
-      className="px-8 text-center grid text-white md:grid-cols-2 lg:grid-cols-3 pt-20"
+      className="px-1 text-center grid text-white md:grid-cols-2 lg:grid-cols-3 pt-20"
     >
       {categories.map((categorie) => (
         <div
