@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
-import logo from "../images/logo.png";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNav from "./MobileNav";
 import { Link } from "react-router-dom";
@@ -10,7 +9,6 @@ import { selectIsLoggedIn, selectUserInfo, setLogin } from "../redux/authSlice";
 import { selectCart } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../redux/cartSlice";
-import { SlLogout } from "react-icons/sl";
 
 const Navbar = ({ home }) => {
   const navigate = useNavigate();
@@ -143,7 +141,7 @@ const Navbar = ({ home }) => {
           {isLoggedIn && (
             <Link to="/user">
               <img
-                src={userInfo?.profilePic || logo}
+                src={userInfo?.profilePic || "/images/logo.png"}
                 alt=""
                 className="w-[3rem] h-[2.5rem] rounded-[100%] border-2"
               />
@@ -166,7 +164,7 @@ const Navbar = ({ home }) => {
           logout={logout}
           userInfo={userInfo}
           cart={cart}
-          logo={logo}
+          logo={"/images/logo.png"}
           home={home}
           scrollToPage={scrollToPage}
         />

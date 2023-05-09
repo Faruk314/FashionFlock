@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import StripeCheckout from "react-stripe-checkout";
-import logo from "../images/logo.png";
 import axios from "axios";
 
 const key =
@@ -33,7 +32,7 @@ const Checkout = () => {
   return (
     <StripeCheckout
       name="Faruk Shop"
-      img={logo}
+      img={"/images/logo.png"}
       billingAddress
       shippingAddress
       description="Your total is 20$"

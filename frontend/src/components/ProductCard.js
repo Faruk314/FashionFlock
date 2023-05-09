@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import tshirt from "../images/tshirt.png";
-import { AiOutlineShoppingCart, AiOutlineSearch } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
-import blackWhiteShirt from "../images/blackWhiteShirt.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ id, image }) => {
   const [isHovering, setIsHovering] = useState(false);

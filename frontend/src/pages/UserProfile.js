@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import logo from "../images/logo.png";
 import { selectUserInfo } from "../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 import Success from "../modals/Success";

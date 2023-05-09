@@ -1,17 +1,12 @@
 import React from "react";
-import addidas from "../images/adidas.png";
-import northFace from "../images/northFace.png";
-import lacoste from "../images/lacoste.png";
-import puma from "../images/puma.png";
-import polo from "../images/polo.png";
 
 const Brands = () => {
   const brands = [
-    { id: 2, brand: northFace },
-    { id: 4, brand: polo },
-    { id: 1, brand: addidas },
-    { id: 5, brand: puma },
-    { id: 3, brand: lacoste },
+    { id: 2, brand: "/images/northFace.png" },
+    { id: 4, brand: "/images/polo.png" },
+    { id: 1, brand: "/images/adidas.png" },
+    { id: 5, brand: "/images/puma.png" },
+    { id: 3, brand: "/images/lacoste.png" },
   ];
 
   return (
