@@ -11,7 +11,6 @@ const Category = () => {
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState("newest");
   const [pageNumber, setPageNumber] = useState(0);
-  const productsPerPage = 8;
   const [pageCount, setPageCount] = useState(0);
 
   console.log(products);
