@@ -148,51 +148,6 @@ const Register = () => {
         </button>
       </form>
     </section>
-
-    // <section className="flex items-center justify-center h-[100vh]">
-    //   <form
-    //     onSubmit={register}
-    //     className="flex flex-col items-center border-2 py-20 px-5"
-    //   >
-    //     <h2 className="text-4xl font-bold">Register</h2>
-
-    //     <label className="mt-10 text-2xl">Username</label>
-    //     <input
-    //       type="text"
-    //       placeholder="Enter your username"
-    //       className="border-2 px-2 py-1 md:w-[30rem]"
-    //       name="username"
-    //       onChange={(e) => setUsername(e.target.value)}
-    //       value={username}
-    //     />
-
-    //     <label className="mt-10 text-2xl">Email</label>
-    //     <input
-    //       type="email"
-    //       placeholder="Enter your email"
-    //       className="border-2 px-2 py-1 md:w-[30rem]"
-    //       name="email"
-    //       onChange={(e) => setEmail(e.target.value)}
-    //       value={email}
-    //     />
-
-    //     <label className="mt-10 text-2xl">Password</label>
-    //     <input
-    //       type="password"
-    //       placeholder="Enter your password"
-    //       className="border-2 px-2 py-1 md:w-[30rem]"
-    //       name="password"
-    //       onChange={(e) => setPassword(e.target.value)}
-    //       value={password}
-    //     />
-
-    //     {message && <p className="my-5 text-red-500">{message}</p>}
-
-    //     <button className="bg-cyan-600 px-5 py-2 font-bold text-white mt-10">
-    //       Register
-    //     </button>
-    //   </form>
-    // </section>
   );
 };
 
