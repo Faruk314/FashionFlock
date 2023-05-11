@@ -21,6 +21,8 @@ const Login = () => {
     e.preventDefault();
     let formData;
 
+    console.log(guest);
+
     if ((!email || !password) && guest === false) {
       setMessage("All fields must be filled");
       return;
@@ -36,7 +38,7 @@ const Login = () => {
     if (guest === true) {
       formData = {
         email: "guest@gmail.com",
-        password: "guest123",
+        password: "guestguest",
       };
     }
 
@@ -50,12 +52,13 @@ const Login = () => {
         dispatch(setLogin(true));
         dispatch(getUserInfo());
       }
+
+      if (cart.length === 0) {
+        navigate("/");
+        return;
+      }
     } catch (error) {
       setMessage(error.response.data.message);
-    }
-
-    if (cart.length === 0) {
-      navigate("/");
       return;
     }
 
