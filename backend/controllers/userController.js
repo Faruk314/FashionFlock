@@ -30,7 +30,6 @@ const register = AsyncHandler(async (req, res) => {
     username,
     email,
     password,
-    profilePic: fileData,
   });
 
   const token = generateToken(newUser._id);
