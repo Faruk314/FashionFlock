@@ -72,7 +72,7 @@ const login = AsyncHandler(async (req, res) => {
     throw new Error("Email or password is not valid");
   }
 
-  const passwordCorrect = bcrypt.compare(password, user.password);
+  const passwordCorrect = await bcrypt.compare(password, user.password);
 
   if (user && passwordCorrect) {
     const token = generateToken(user._id);
