@@ -2,11 +2,11 @@ import React from "react";
 
 const Brands = () => {
   const brands = [
-    { id: 2, brand: "/images/northFace.png" },
-    { id: 4, brand: "/images/polo.png" },
-    { id: 1, brand: "/images/adidas.png" },
-    { id: 5, brand: "/images/puma.png" },
-    { id: 3, brand: "/images/lacoste.png" },
+    { id: 1, brand: "/images/northFace.png" },
+    { id: 2, brand: "/images/polo.png" },
+    { id: 3, brand: "/images/adidas.png" },
+    { id: 4, brand: "/images/puma.png" },
+    { id: 5, brand: "/images/lacoste.png" },
   ];
 
   return (
@@ -18,7 +18,12 @@ const Brands = () => {
       <div className="py-10 px-20 bg-cyan-600 w-full">
         <div className="h-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center items-center">
           {brands.map((brand) => (
-            <img src={brand.brand} alt="" className="md:w-[10rem]"></img>
+            <img
+              key={brand.id}
+              src={brand.brand}
+              alt=""
+              className="md:w-[10rem]"
+            ></img>
           ))}
         </div>
       </div>
