@@ -47,7 +47,7 @@ const Register = () => {
         dispatch(getUserInfo());
       }
     } catch (error) {
-      console.log(error);
+      setMessage(error.response.data.message);
     }
 
     if (cart.length === 0) {
