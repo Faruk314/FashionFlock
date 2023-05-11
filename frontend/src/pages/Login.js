@@ -70,7 +70,7 @@ const Login = () => {
     });
 
     const data = {
-      userId: await userInfo?._id,
+      userId: userInfo._id,
       products: userCart,
     };
 
