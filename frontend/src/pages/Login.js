@@ -17,18 +17,28 @@ const Login = () => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
 
-  const login = async (e) => {
+  const login = async (e, guest) => {
     e.preventDefault();
+    let formData;
 
-    if (!email || !password) {
+    if ((!email || !password) && guest === false) {
       setMessage("All fields must be filled");
       return;
     }
 
-    let formData = {
-      email,
-      password,
-    };
+    if (guest === false) {
+      formData = {
+        email,
+        password,
+      };
+    }
+
+    if (guest === true) {
+      formData = {
+        email: "guest@gmail.com",
+        password: "guest123",
+      };
+    }
 
     try {
       const response = await axios.post(
@@ -65,10 +75,7 @@ const Login = () => {
     };
 
     try {
-      const response = await axios.post(
-        `http://localhost:5000/api/cart/createusercart`,
-        data
-      );
+      await axios.post(`http://localhost:5000/api/cart/createusercart`, data);
 
       dispatch(getCart());
       navigate("/");
@@ -76,13 +83,14 @@ const Login = () => {
       console.log(error);
     }
   };
+
   return (
     <section className="flex items-center justify-center h-screen">
       <form
-        onSubmit={login}
+        onSubmit={(e) => login(e, false)}
         className="bg-white p-8 rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
       >
-        <h2 className="text-3xl font-bold mb-6">Sign in</h2>
+        <h2 className="text-3xl font-bold mb-6">Login</h2>
 
         <div className="mb-6">
           <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
@@ -117,18 +125,28 @@ const Login = () => {
         {message && <p className="mb-6 text-red-500">{message}</p>}
 
         <div className="flex justify-between items-center">
-          <button
-            type="submit"
-            className="border-2 border-cyan-500 px-6 py-1 text-base md:text-lg font-bold transition-colors hover:bg-cyan-500 hover:text-white"
-          >
-            Sign in
-          </button>
-          <Link
-            to="/signup"
-            className="text-gray-700 font-bold hover:text-gray-900"
-          >
-            Create an account
-          </Link>
+          <div className="flex flex-col items-start space-y-2">
+            <button
+              type="submit"
+              className="border-2 border-cyan-500 px-6 py-1 text-base md:text-lg font-bold transition-colors hover:bg-cyan-500 hover:text-white"
+            >
+              Login
+            </button>
+
+            <button
+              onClick={(e) => login(e, true)}
+              className="border-2 border-cyan-500 px-6 py-1 text-base md:text-lg font-bold transition-colors hover:bg-cyan-500 hover:text-white"
+            >
+              Login as guest
+            </button>
+
+            <Link
+              to="/register"
+              className="text-gray-700 font-bold hover:text-gray-900"
+            >
+              Create an account
+            </Link>
+          </div>
         </div>
       </form>
     </section>
