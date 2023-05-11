@@ -19,8 +19,6 @@ const Navbar = ({ home }) => {
   const userInfo = useSelector(selectUserInfo);
   const [scroll, setScroll] = useState(false);
 
-  console.log("userinfo", userInfo);
-
   const handleScroll = () => {
     if (window.scrollY > 20) {
       setScroll(true);

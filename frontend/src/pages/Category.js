@@ -13,8 +13,6 @@ const Category = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [pageCount, setPageCount] = useState(0);
 
-  console.log(products);
-
   const handleFilters = (e) => {
     const value = e.target.value;
     setFilters({
