@@ -13,7 +13,7 @@ const path = require("path");
 const MinioClient = require("./utils/minioClient");
 const app = express();
 
-mongoose.connect(process.env.MONGO_URL).then(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
   console.log("connected to mongo");
 });
 
