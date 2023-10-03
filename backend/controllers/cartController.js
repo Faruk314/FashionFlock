@@ -32,9 +32,12 @@ const removeFromCart = AsyncHandler(async (req, res) => {
     throw new Error("Cart not found!");
   }
 
-  const updatedCart = await Cart.updateOne({
-    $pull: { products: product },
-  });
+  console.log(product, "product");
+
+  const updatedCart = await Cart.updateOne(
+    { _id: cart._id }, // Filter
+    { $pull: { products: { _id } } } // Update
+  );
 
   res.json(updatedCart);
 });

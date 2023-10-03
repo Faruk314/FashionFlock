@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import {
   decreaseQuantity,
@@ -24,7 +23,12 @@ const OrderCard = ({ product }) => {
 
     if (isLogged) {
       try {
-        await axios.put(`http://localhost:5000/api/cart/removefromcart`, data);
+        const response = await axios.put(
+          `http://localhost:5000/api/cart/removefromcart`,
+          data
+        );
+
+        console.log(response);
 
         dispatch(getCart());
       } catch (error) {
@@ -74,9 +78,9 @@ const OrderCard = ({ product }) => {
 
   return (
     <div className="relative w-full text-[1rem] flex items-center justify-center">
-      <div className="flex flex-col items-center space-y-2 md:flex-row space-x-5 w-full">
-        <div className="md:border-b mt-2">
-          <div className="flex  flex-col md:flex-row space-y-2 md:space-y-0">
+      <div className="flex flex-col items-center w-full space-x-5 space-y-2 md:flex-row">
+        <div className="mt-2 md:border-b">
+          <div className="flex flex-col space-y-2 md:flex-row md:space-y-0">
             <div className="relative">
               <img
                 src={product.image}
@@ -85,7 +89,7 @@ const OrderCard = ({ product }) => {
               ></img>
 
               <button
-                className="absolute top-2 left-2 font-bold text-2xl text-gray-400 hover:text-gray-800"
+                className="absolute text-2xl font-bold text-gray-400 top-2 left-2 hover:text-gray-800"
                 onClick={() => setConfirmModalOpen(true)}
               >
                 X
