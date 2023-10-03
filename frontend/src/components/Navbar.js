@@ -51,7 +51,7 @@ const Navbar = ({ home }) => {
 
   return (
     <header className="">
-      <div className="bg-cyan-600 text-center text-white py-1">
+      <div className="py-1 text-center text-white bg-cyan-600">
         <span className="">Shipping discount on everything!</span>
       </div>
       <nav
@@ -67,30 +67,30 @@ const Navbar = ({ home }) => {
               }
             : { position: "" }
         }
-        className="mx-auto flex justify-between items-center py-3 bg-white shadow-lg px-5"
+        className="flex items-center justify-between px-5 py-3 mx-auto bg-white border-b shadow-lg"
       >
         <div className="flex items-center space-x-6">
-          <Link className="font-bold text-3xl text-cyan-500" to="/">
+          <Link className="text-3xl font-bold text-cyan-500" to="/">
             FF
           </Link>
 
           {home && (
-            <div className="flex space-x-4 font-medium hidden md:block">
+            <div className="flex hidden space-x-4 font-medium md:block">
               <span
                 onClick={() => scrollToPage("home")}
-                className="text-lg font-medium hover:text-cyan-500 cursor-pointer"
+                className="text-lg font-medium cursor-pointer hover:text-cyan-500"
               >
                 HOME
               </span>
               <span
                 onClick={() => scrollToPage("categories")}
-                className="text-lg font-medium hover:text-cyan-500 cursor-pointer"
+                className="text-lg font-medium cursor-pointer hover:text-cyan-500"
               >
                 CATEGORIES
               </span>
               <span
                 onClick={() => scrollToPage("featured")}
-                className="text-lg font-medium hover:text-cyan-500 cursor-pointer"
+                className="text-lg font-medium cursor-pointer hover:text-cyan-500"
               >
                 FEATURED
               </span>
@@ -102,21 +102,21 @@ const Navbar = ({ home }) => {
           {isLoggedIn && (
             <span
               onClick={logout}
-              className="text-lg font-medium hover:text-cyan-500 cursor-pointer hidden md:block"
+              className="hidden text-lg font-medium cursor-pointer hover:text-cyan-500 md:block"
             >
               LOGOUT
             </span>
           )}
           {!isLoggedIn && (
             <Link to="/register" className="hidden md:block">
-              <span className="text-lg font-medium hover:text-cyan-500 cursor-pointer">
+              <span className="text-lg font-medium cursor-pointer hover:text-cyan-500">
                 REGISTER
               </span>
             </Link>
           )}
           {!isLoggedIn && (
             <Link to="/login">
-              <span className="text-lg font-medium hover:text-cyan-500 cursor-pointer hidden md:block">
+              <span className="hidden text-lg font-medium cursor-pointer hover:text-cyan-500 md:block">
                 SIGN IN
               </span>
             </Link>
@@ -125,7 +125,7 @@ const Navbar = ({ home }) => {
           <Link to="/cart">
             <span className="relative">
               <AiOutlineShoppingCart
-                className="text-lg font-medium hover:text-cyan-500 cursor-pointer"
+                className="text-lg font-medium cursor-pointer hover:text-cyan-500"
                 size={30}
               />
               {cart.length !== 0 && (
@@ -136,20 +136,10 @@ const Navbar = ({ home }) => {
             </span>
           </Link>
 
-          {isLoggedIn && (
-            <Link to="/user">
-              <img
-                src={userInfo?.profilePic || "/images/logo.png"}
-                alt=""
-                className="w-[3rem] h-[2.5rem] rounded-[100%] border-2"
-              />
-            </Link>
-          )}
-
           <GiHamburgerMenu
             onClick={() => setOpen(true)}
             size={30}
-            className="cursor-pointer text-gray-600 hover:text-cyan-500 md:hidden"
+            className="text-gray-600 cursor-pointer hover:text-cyan-500 md:hidden"
           />
         </div>
       </nav>

@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Product from "./pages/Product";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
-import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +12,6 @@ import axios from "axios";
 import { getUserInfo, selectIsLoggedIn, setLogin } from "./redux/authSlice";
 import { getCart } from "./redux/cartSlice";
 import Checkout from "./pages/Checkout";
-import UserProfile from "./pages/UserProfile";
 
 axios.defaults.withCredentials = true;
 
@@ -109,15 +107,6 @@ function App() {
             <>
               <Navbar />
               <Checkout />
-            </>
-          }
-        />
-        <Route
-          path="/user"
-          element={
-            <>
-              <Navbar />
-              <UserProfile />
             </>
           }
         />
