@@ -9,7 +9,7 @@ const Featured = () => {
     const getFeaturedProducts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/getFeaturedProducts`
+          `${process.env.REACT_APP_API_URL}/products/getFeaturedProducts`
         );
 
         setFeatured(response.data);

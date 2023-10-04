@@ -11,7 +11,7 @@ export const getUserInfo = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const user = await axios.get(
-        `http://localhost:5000/api/user/getuserinfo`
+        `${process.env.REACT_APP_API_URL}/user/getuserinfo`
       );
       return user.data;
     } catch (error) {

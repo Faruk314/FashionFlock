@@ -35,7 +35,10 @@ const Product = () => {
         image: product.image,
       };
       try {
-        await axios.put(`http://localhost:5000/api/cart/addtocart`, prod);
+        await axios.put(
+          `${process.env.REACT_APP_API_URL}/cart/addtocart`,
+          prod
+        );
 
         dispatch(getCart());
         navigate("/cart");
@@ -74,7 +77,7 @@ const Product = () => {
     const getProd = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/getproduct/${id}`
+          `${process.env.REACT_APP_API_URL}/products/getproduct/${id}`
         );
 
         setProduct(response.data);

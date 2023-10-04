@@ -51,9 +51,10 @@ const Category = () => {
     const getProdByCategory = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/getproducts/${name}/${pageNumber}`
+          `api/products/getproducts/${name}/${pageNumber}`
         );
 
+        console.log(response.data);
         setProducts(response.data.products);
         setPageCount(response.data.pages);
       } catch (error) {
@@ -69,8 +70,8 @@ const Category = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto py-20 px-5">
-      <h2 className="text-3xl my-2 font-bold text-center">
+    <section className="px-5 py-20 mx-auto max-w-7xl">
+      <h2 className="my-2 text-3xl font-bold text-center">
         {name.toUpperCase()}
       </h2>
 
@@ -79,7 +80,7 @@ const Category = () => {
           <select
             onChange={handleFilters}
             name="sizes"
-            className="border py-2 px-4 md:px-6 outline-none"
+            className="px-4 py-2 border outline-none md:px-6"
           >
             <option disabled>Size</option>
             <option value="XS">XS</option>
@@ -93,7 +94,7 @@ const Category = () => {
         <div className="flex flex-col mt-2 md:mt-0">
           <select
             onChange={(e) => setSort(e.target.value)}
-            className="border py-2 px-1 md:px-6 outline-none"
+            className="px-1 py-2 border outline-none md:px-6"
           >
             <option value="asc">Price (asc)</option>
             <option value="desc">Price (desc)</option>
@@ -101,7 +102,7 @@ const Category = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 mt-5">
+      <div className="grid grid-cols-1 gap-2 mt-5 md:grid-cols-2 lg:grid-cols-4">
         {filteredProducts.length === 0 && (
           <p className="text-2xl text-cyan-500">No items found</p>
         )}

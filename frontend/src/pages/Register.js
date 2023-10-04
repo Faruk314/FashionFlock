@@ -38,7 +38,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/user/register`,
+        `${process.env.REACT_APP_API_URL}/user/register`,
         formData
       );
 
@@ -73,7 +73,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/cart/createusercart`,
+        `${process.env.REACT_APP_API_URL}/cart/createusercart`,
         data
       );
 

@@ -23,7 +23,7 @@ function App() {
     const getLoginStatus = async () => {
       try {
         const status = await axios.get(
-          `http://localhost:5000/api/user/loginstatus`
+          `${process.env.REACT_APP_API_URL}/user/loginstatus`
         );
 
         dispatch(setLogin(status.data));

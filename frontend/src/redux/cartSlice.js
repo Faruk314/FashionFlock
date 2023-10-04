@@ -8,7 +8,9 @@ const initialState = {
 
 export const getCart = createAsyncThunk("cart/getCart", async (thunkAPI) => {
   try {
-    const response = await axios.get(`http://localhost:5000/api/cart/getcart`);
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/cart/getcart`
+    );
     return response.data;
   } catch (error) {
     const message =

@@ -34,7 +34,7 @@ const Navbar = ({ home }) => {
 
   const logout = async () => {
     try {
-      await axios.get(`http://localhost:5000/api/user/logout`);
+      await axios.get(`${process.env.REACT_APP_API_URL}/user/logout`);
       dispatch(setLogin(false));
       dispatch(clearCart());
       navigate("/");

@@ -141,6 +141,7 @@ const getFeaturedProducts = AsyncHandler(async (req, res) => {
       });
     })
   ).then(() => {
+    console.log(products, "rpdoducts");
     res.status(200).json(products);
   });
 });

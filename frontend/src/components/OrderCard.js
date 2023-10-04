@@ -24,7 +24,7 @@ const OrderCard = ({ product }) => {
     if (isLogged) {
       try {
         const response = await axios.put(
-          `http://localhost:5000/api/cart/removefromcart`,
+          `${process.env.REACT_APP_API_URL}/cart/removefromcart`,
           data
         );
 
@@ -57,7 +57,10 @@ const OrderCard = ({ product }) => {
 
     if (isLogged && sign === "plus") {
       try {
-        await axios.put(`http://localhost:5000/api/cart/increaseQty`, data);
+        await axios.put(
+          `${process.env.REACT_APP_API_URL}/cart/increaseQty`,
+          data
+        );
 
         dispatch(getCart());
       } catch (error) {
@@ -67,7 +70,10 @@ const OrderCard = ({ product }) => {
 
     if (isLogged && sign === "minus") {
       try {
-        await axios.put(`http://localhost:5000/api/cart/decreaseQty`, data);
+        await axios.put(
+          `${process.env.REACT_APP_API_URL}/cart/decreaseQty`,
+          data
+        );
 
         dispatch(getCart());
       } catch (error) {

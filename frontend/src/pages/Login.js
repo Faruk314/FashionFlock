@@ -44,7 +44,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/user/login`,
+        `${process.env.REACT_APP_API_URL}/user/login`,
         formData
       );
 
@@ -79,7 +79,10 @@ const Login = () => {
     };
 
     try {
-      await axios.post(`http://localhost:5000/api/cart/createusercart`, data);
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/cart/createusercart`,
+        data
+      );
 
       dispatch(getCart());
       navigate("/");
@@ -94,10 +97,10 @@ const Login = () => {
         onSubmit={(e) => login(e, false)}
         className="bg-white p-8 rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
       >
-        <h2 className="text-3xl font-bold mb-6">Login</h2>
+        <h2 className="mb-6 text-3xl font-bold">Login</h2>
 
         <div className="mb-6">
-          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+          <label htmlFor="email" className="block mb-2 font-bold text-gray-700">
             Email
           </label>
           <input
@@ -105,14 +108,14 @@ const Login = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:bg-white focus:border-cyan-500"
             required
           />
         </div>
         <div className="mb-6">
           <label
             htmlFor="password"
-            className="block text-gray-700 font-bold mb-2"
+            className="block mb-2 font-bold text-gray-700"
           >
             Password
           </label>
@@ -121,32 +124,32 @@ const Login = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:bg-white focus:border-cyan-500"
             required
           />
         </div>
 
         {message && <p className="mb-6 text-red-500">{message}</p>}
 
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <div className="flex flex-col items-start space-y-2">
             <button
               type="submit"
-              className="border-2 border-cyan-500 px-6 py-1 text-base md:text-lg font-bold transition-colors hover:bg-cyan-500 hover:text-white"
+              className="px-6 py-1 text-base font-bold transition-colors border-2 border-cyan-500 md:text-lg hover:bg-cyan-500 hover:text-white"
             >
               Login
             </button>
 
             <button
               onClick={(e) => login(e, true)}
-              className="border-2 border-cyan-500 px-6 py-1 text-base md:text-lg font-bold transition-colors hover:bg-cyan-500 hover:text-white"
+              className="px-6 py-1 text-base font-bold transition-colors border-2 border-cyan-500 md:text-lg hover:bg-cyan-500 hover:text-white"
             >
               Login as guest
             </button>
 
             <Link
               to="/register"
-              className="text-gray-700 font-bold hover:text-gray-900"
+              className="font-bold text-gray-700 hover:text-gray-900"
             >
               Create an account
             </Link>
@@ -158,7 +161,7 @@ const Login = () => {
     // <section className="flex items-center justify-center h-[100vh]">
     //   <form
     //     onSubmit={login}
-    //     className="flex flex-col items-center border-2 py-20 px-5"
+    //     className="flex flex-col items-center px-5 py-20 border-2"
     //   >
     //     <h2 className="text-4xl font-bold">Sign in</h2>
 
@@ -184,7 +187,7 @@ const Login = () => {
 
     //     {message && <p className="my-5 text-red-500">{message}</p>}
 
-    //     <button className="bg-cyan-600 px-5 py-2 font-bold text-white hover:bg-white hover:border-2 hover:border-black hover:text-black mt-10">
+    //     <button className="px-5 py-2 mt-10 font-bold text-white bg-cyan-600 hover:bg-white hover:border-2 hover:border-black hover:text-black">
     //       Sign in
     //     </button>
     //   </form>
