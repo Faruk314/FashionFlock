@@ -5,7 +5,6 @@ const {
   logout,
   loginStatus,
   getUserInfo,
-  updateUser,
 } = require("../controllers/userController");
 const upload = require("../utils/fileUpload");
 const protect = require("../utils/protect");
@@ -19,7 +18,5 @@ router.get("/logout", logout);
 router.get("/loginstatus", loginStatus);
 
 router.get("/getuserinfo", protect, getUserInfo);
-
-router.put("/updateuser", protect, upload.single("profilePic"), updateUser);
 
 module.exports = router;

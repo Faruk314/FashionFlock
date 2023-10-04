@@ -150,66 +150,10 @@ const getUserInfo = AsyncHandler(async (req, res) => {
   res.status(200).json(user);
 });
 
-const updateUser = AsyncHandler(async (req, res) => {
-  const { username, email } = req.body;
-
-  console.log(username);
-  console.log(email);
-
-  const user = await User.findById(req.user._id);
-
-  if (!user) {
-    res.status(404);
-    throw new Error("User is not found");
-  }
-
-  if (!username) {
-    res.status(404);
-    throw new Error("Username is missing");
-  }
-
-  let uuid = shortUUID.generate().toString();
-
-  console.log("uuid", uuid);
-
-  if (req.file) {
-    console.log(req.file);
-    try {
-      MinioClient.fPutObject(
-        "ecommerc-site",
-        uuid,
-        req.file?.path,
-        {
-          "Content-Type": "application/octet-stream",
-        },
-        function (error) {
-          if (error) {
-            console.log(error);
-            return;
-          }
-
-          console.log(req.file);
-        }
-      );
-    } catch (error) {
-      res.status(500);
-      throw new Error("image could not be uploaded");
-    }
-  }
-
-  user.username = username;
-  user.profilePic = uuid;
-
-  const updatedUser = await user.save();
-
-  res.json(updateUser);
-});
-
 module.exports = {
   register,
   login,
   logout,
   loginStatus,
   getUserInfo,
-  updateUser,
 };
