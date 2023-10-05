@@ -51,7 +51,7 @@ const Category = () => {
     const getProdByCategory = async () => {
       try {
         const response = await axios.get(
-          `api/products/getproducts/${name}/${pageNumber}`
+          `${process.env.REACT_APP_API_URL}/products/getproducts/${name}/${pageNumber}`
         );
 
         console.log(response.data);

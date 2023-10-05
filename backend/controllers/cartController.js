@@ -1,7 +1,5 @@
 const Cart = require("../models/CartModel");
-const protect = require("../utils/protect");
 const AsyncHandler = require("express-async-handler");
-const Product = require("../models/ProductModel");
 
 const getCart = AsyncHandler(async (req, res) => {
   const cart = await Cart.findOne({ userId: req.user._id });

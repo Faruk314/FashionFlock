@@ -1,11 +1,7 @@
 const User = require("../models/UserModel");
 const AsyncHandler = require("express-async-handler");
-const upload = require("../utils/fileUpload");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const protect = require("../utils/protect");
-const shortUUID = require("short-uuid");
-const MinioClient = require("../utils/minioClient");
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
@@ -131,20 +127,6 @@ const getUserInfo = AsyncHandler(async (req, res) => {
   if (!user) {
     res.status(404);
     throw new Error("User is not found");
-  }
-
-  if (user.profilePic) {
-    MinioClient.presignedUrl(
-      "GET",
-      "social-media",
-      user.profilePic,
-      24 * 60 * 60,
-      function (err, presignedUrl) {
-        if (!err) {
-          user.profilePic = presignedUrl;
-        }
-      }
-    );
   }
 
   res.status(200).json(user);

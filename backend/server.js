@@ -10,7 +10,6 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
-const MinioClient = require("./utils/minioClient");
 const app = express();
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
@@ -34,11 +33,8 @@ app.use(
   })
 );
 
-MinioClient.bucketExists("ecommerc-site", (exists) => {
-  exists ? null : console.log("Minio Bucket does not exist!");
-});
-
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/images", express.static(path.join(__dirname, "images")));
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 app.use("/api/user", userRoute);
 app.use("/api/products", productRoute);

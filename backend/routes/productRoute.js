@@ -1,9 +1,5 @@
 const router = require("express").Router();
-const protect = require("../utils/protect");
-const Product = require("../models/ProductModel");
-const AsyncHandler = require("express-async-handler");
-const { default: mongoose } = require("mongoose");
-const Cart = require("../models/CartModel");
+
 const {
   createProduct,
   getproducts,

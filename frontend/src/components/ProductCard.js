@@ -23,10 +23,14 @@ const ProductCard = ({ id, image }) => {
       onMouseOut={handleMouseOut}
       className="relative flex flex-col items-center border h-[25rem] cursor-pointer"
     >
-      <img src={image} alt="" className="w-full h-full"></img>
+      <img
+        src={`http://localhost:5000/images/${image}`}
+        alt=""
+        className="w-full h-full"
+      ></img>
 
       {show && (
-        <div className="absolute top-0 w-full h-full bg-cyan-500 bg-opacity-10 flex items-end justify-center py-2"></div>
+        <div className="absolute top-0 flex items-end justify-center w-full h-full py-2 bg-cyan-500 bg-opacity-10"></div>
       )}
     </div>
   );

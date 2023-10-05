@@ -6,7 +6,6 @@ const {
   loginStatus,
   getUserInfo,
 } = require("../controllers/userController");
-const upload = require("../utils/fileUpload");
 const protect = require("../utils/protect");
 
 router.post("/register", register);

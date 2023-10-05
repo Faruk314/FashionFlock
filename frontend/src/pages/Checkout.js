@@ -16,7 +16,7 @@ const Checkout = () => {
     const makeRequest = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:500/api/checkout/payment",
+          `${process.env.REACT_APP_API_URL}/checkout/payment`,
           { tokenId: stripeToken.id, amount: 2000 }
         );
 

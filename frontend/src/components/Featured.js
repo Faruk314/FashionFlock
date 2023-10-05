@@ -24,10 +24,10 @@ const Featured = () => {
   return (
     <section
       id="featured"
-      className="px-10 text-center flex flex-col items-center justify-center py-20"
+      className="flex flex-col items-center justify-center px-10 py-20 text-center"
     >
-      <span className="font-bold text-3xl">OUR FAVOURITES</span>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-2 my-10">
+      <span className="text-3xl font-bold">OUR FAVOURITES</span>
+      <div className="grid gap-2 my-10 md:grid-cols-2 lg:grid-cols-4">
         {featured.map((prod) => (
           <ProductCard key={prod._id} id={prod._id} image={prod.image} />
         ))}

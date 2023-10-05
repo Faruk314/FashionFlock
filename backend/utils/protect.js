@@ -6,6 +6,8 @@ const protect = asyncHandler(async (req, res, next) => {
   try {
     const token = req.cookies.token;
 
+    console.log(token, "token");
+
     if (!token) {
       res.status(401);
       throw new Error("User is not authenticated");
