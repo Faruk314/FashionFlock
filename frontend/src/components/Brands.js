@@ -12,11 +12,11 @@ const Brands = () => {
   return (
     <section
       id="brands"
-      className="hidden md:flex flex-col items-center justify-center space-y-10"
+      className="flex-col items-center justify-center hidden space-y-10 md:flex"
     >
-      <span className="font-bold text-3xl">TRENDING BRANDS</span>
-      <div className="py-10 px-20 bg-cyan-600 w-full">
-        <div className="h-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center items-center">
+      <span className="text-3xl font-bold">TRENDING BRANDS</span>
+      <div className="w-full px-20 py-10 bg-cyan-600">
+        <div className="grid items-center justify-center h-full grid-cols-2 mx-auto max-w-7xl md:grid-cols-3 lg:grid-cols-5">
           {brands.map((brand) => (
             <img
               key={brand.id}

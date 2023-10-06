@@ -90,26 +90,30 @@ const Product = () => {
   }, [id]);
 
   return (
-    <section className="flex justify-center items-center px-5 py-20">
-      <div className="grid space-y-2 md:grid-cols-2 items-center space-x-10 justify-center max-w-5xl">
+    <section className="flex items-center justify-center px-5 py-20">
+      <div className="grid items-center justify-center max-w-5xl space-x-10 space-y-2 md:grid-cols-2">
         <div className="mx-auto">
-          <img src={product?.image} alt="" className="object-cover" />
+          <img
+            src={`${process.env.REACT_APP_IMAGES_URL}/${product.image}`}
+            alt=""
+            className="object-cover"
+          />
         </div>
 
         <div className="flex flex-col items-center justify-center md:items-start">
-          <h2 className="text-3xl md:text-5xl font-bold text-center md:text-left">
+          <h2 className="text-3xl font-bold text-center md:text-5xl md:text-left">
             {product?.title}
           </h2>
 
-          <p className="text-center my-8 md:text-left">{product?.desc}</p>
+          <p className="my-8 text-center md:text-left">{product?.desc}</p>
 
-          <span className="text-4xl md:text-5xl mb-8">$ {product?.price}</span>
+          <span className="mb-8 text-4xl md:text-5xl">$ {product?.price}</span>
 
-          <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
+          <div className="flex flex-col items-center mb-8 space-y-4 md:flex-row md:space-y-0 md:space-x-8">
             <div className="flex items-center space-x-2">
               <span className="text-lg md:text-3xl">Size</span>
               <select
-                className="pr-4 py-1 border border-black text-base md:text-lg outline-none"
+                className="py-1 pr-4 text-base border border-black outline-none md:text-lg"
                 onChange={(e) => setSize(e.target.value)}
               >
                 <option>Choose your size</option>
@@ -127,7 +131,7 @@ const Product = () => {
               <span className="hover:cursor-pointer">
                 <AiOutlineMinus onClick={() => handleQuantity("minus")} />
               </span>
-              <span className="border-2 px-2 rounded-md border-cyan-500">
+              <span className="px-2 border-2 rounded-md border-cyan-500">
                 {quantity}
               </span>
               <span className="hover:cursor-pointer">
@@ -136,7 +140,7 @@ const Product = () => {
             </div>
 
             <button
-              className="border-2 border-cyan-500 px-6 py-2 text-base md:text-lg font-bold transition-colors hover:bg-cyan-500 hover:text-white"
+              className="px-6 py-2 text-base font-bold transition-colors border-2 border-cyan-500 md:text-lg hover:bg-cyan-500 hover:text-white"
               onClick={cartHandler}
             >
               ADD TO CART

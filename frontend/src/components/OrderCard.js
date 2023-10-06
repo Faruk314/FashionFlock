@@ -89,7 +89,7 @@ const OrderCard = ({ product }) => {
           <div className="flex flex-col space-y-2 md:flex-row md:space-y-0">
             <div className="relative">
               <img
-                src={product.image}
+                src={`${process.env.REACT_APP_IMAGES_URL}/${product.image}`}
                 alt=""
                 className="h-[25rem] md:h-[12rem] md:w-[10rem]"
               ></img>

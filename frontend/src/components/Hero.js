@@ -41,13 +41,13 @@ const Hero = () => {
                 <h1 className="text-6xl font-bold tracking-wide text-center md:text-6xl sm:text-4xl text-cyan-600">
                   {slide.title}
                 </h1>
-                <p className="my-10 text-xl md:text-3xl text-center">
+                <p className="my-10 text-xl text-center md:text-3xl">
                   {slide.desc}
                 </p>
 
                 <button
                   onClick={() => scrollToPage("categories")}
-                  className="px-6 py-2 text-lg font-bold text-cyan-500 transition-colors bg-white border-2 border-cyan-500 hover:bg-cyan-500 hover:text-white"
+                  className="px-6 py-2 text-lg font-bold transition-colors bg-white border-2 text-cyan-500 border-cyan-500 hover:bg-cyan-500 hover:text-white"
                 >
                   SHOP NOW
                 </button>

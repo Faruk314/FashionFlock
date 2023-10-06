@@ -28,12 +28,12 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: "*",
     credentials: true,
   })
 );
 
-app.use("/images", express.static(path.join(__dirname, "images")));
+app.use("/externalImages", express.static(path.join(__dirname, "images")));
 app.use("/public", express.static(path.join(__dirname, "public")));
 
 app.use("/api/user", userRoute);

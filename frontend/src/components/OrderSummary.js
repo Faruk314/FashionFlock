@@ -47,9 +47,9 @@ const OrderSummary = () => {
   return (
     <form
       onSubmit={checkout}
-      className="max-w-sm h-max bg-white border border-gray-300 rounded-md shadow-lg p-6 flex flex-col gap-6 mt-10"
+      className="flex flex-col max-w-sm gap-6 p-6 mt-10 bg-white border border-gray-300 rounded-md shadow-lg h-max"
     >
-      <h2 className="text-center text-3xl font-bold">Order Summary</h2>
+      <h2 className="text-3xl font-bold text-center">Order Summary</h2>
 
       <div className="flex flex-col gap-2">
         <div className="flex justify-between">
@@ -71,7 +71,7 @@ const OrderSummary = () => {
           <span className="text-base font-medium">${discount}</span>
         </div>
 
-        <div className="flex justify-between border-t border-gray-300 pt-2">
+        <div className="flex justify-between pt-2 border-t border-gray-300">
           <span className="text-lg font-bold text-gray-900">Total</span>
           <span className="text-lg font-bold">
             ${subtotal > 0 ? subtotal + estimatedShipping - discount : 0}
@@ -79,7 +79,7 @@ const OrderSummary = () => {
         </div>
       </div>
 
-      <button className="bg-cyan-600 text-white text-base font-bold py-2 rounded-md hover:bg-cyan-700">
+      <button className="py-2 text-base font-bold text-white rounded-md bg-cyan-600 hover:bg-cyan-700">
         Checkout Now
       </button>
 

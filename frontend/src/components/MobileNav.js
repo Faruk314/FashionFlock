@@ -15,7 +15,7 @@ const MobileNav = ({ open, setOpen, logout, home, scrollToPage }) => {
         {home && (
           <li
             onClick={() => scrollToPage("home")}
-            className="hover:text-cyan-500 cursor-pointer"
+            className="cursor-pointer hover:text-cyan-500"
           >
             HOME
           </li>
@@ -23,7 +23,7 @@ const MobileNav = ({ open, setOpen, logout, home, scrollToPage }) => {
         {home && (
           <li
             onClick={() => scrollToPage("categories")}
-            className="hover:text-cyan-500 cursor-pointer"
+            className="cursor-pointer hover:text-cyan-500"
           >
             CATEGORIES
           </li>
@@ -31,7 +31,7 @@ const MobileNav = ({ open, setOpen, logout, home, scrollToPage }) => {
         {home && (
           <li
             onClick={() => scrollToPage("featured")}
-            className="hover:text-cyan-500 cursor-pointer"
+            className="cursor-pointer hover:text-cyan-500"
           >
             FEATURED
           </li>
@@ -47,7 +47,7 @@ const MobileNav = ({ open, setOpen, logout, home, scrollToPage }) => {
           </Link>
         )}
         {isLoggedIn && (
-          <li className="hover:text-cyan-500 cursor-pointer" onClick={logout}>
+          <li className="cursor-pointer hover:text-cyan-500" onClick={logout}>
             LOGOUT
           </li>
         )}
