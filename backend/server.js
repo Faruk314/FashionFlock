@@ -12,7 +12,7 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI).then(() => {
+mongoose.connect(process.env.MONGO_URL).then(() => {
   console.log("connected to mongo");
 });
 
