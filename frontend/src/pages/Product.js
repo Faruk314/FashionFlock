@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../redux/authSlice";
+import Loader from "../components/Loader";
 
 const Product = () => {
   const isLogged = useSelector(selectIsLoggedIn);
@@ -18,6 +19,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [msg, setMsg] = useState("");
   const [size, setSize] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const cartHandler = async () => {
     if (!size) {
@@ -81,6 +83,7 @@ const Product = () => {
         );
 
         setProduct(response.data);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -89,9 +92,13 @@ const Product = () => {
     getProd();
   }, [id]);
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <section className="flex items-center justify-center px-5 py-20">
-      <div className="grid items-center justify-center max-w-5xl space-x-10 space-y-2 md:grid-cols-2">
+      <div className="grid items-center justify-center max-w-5xl space-y-2 md:space-x-10 md:grid-cols-2">
         <div className="mx-auto">
           <img
             src={`${process.env.REACT_APP_IMAGES_URL}/${product?.image}`}
@@ -147,7 +154,9 @@ const Product = () => {
             </button>
           </div>
 
-          {msg && <span className="text-3xl text-cyan-500">{msg}</span>}
+          {msg && (
+            <span className="text-2xl md:text-3xl text-cyan-500">{msg}</span>
+          )}
         </div>
       </div>
     </section>

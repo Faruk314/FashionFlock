@@ -31,3 +31,21 @@
   color: #fff;
   border-color: #008ba3;
 }
+
+.loader {
+  border: 4px solid #06b6d4;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

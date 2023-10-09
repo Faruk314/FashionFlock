@@ -21,7 +21,7 @@ const ProductCard = ({ id, image }) => {
       onClick={() => navigate(`/product/${id}`)}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      className="relative flex flex-col items-center border h-[25rem] cursor-pointer"
+      className="relative flex flex-col items-center border w-full  md:h-[25rem] cursor-pointer"
     >
       <img
         src={`${process.env.REACT_APP_IMAGES_URL}/${image}`}

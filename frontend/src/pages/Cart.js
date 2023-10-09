@@ -8,10 +8,10 @@ const Cart = () => {
   const cart = useSelector(selectCart);
 
   return (
-    <section className="flex flex-col px-10 py-10 max-w-5xl mx-auto">
+    <section className="flex flex-col max-w-5xl px-5 py-10 mx-auto md:px-10">
       <h2 className="text-4xl font-bold text-center">YOUR CART</h2>
 
-      <div className="flex flex-col space-x-5 my-20 lg:flex-row">
+      <div className="flex flex-col my-20 lg:space-x-5 lg:flex-row">
         <div className="overflow-y-auto max-h-[35rem]">
           {cart.length === 0 && <p className="text-2xl">Your cart is empty</p>}
           {cart.map((product) => (

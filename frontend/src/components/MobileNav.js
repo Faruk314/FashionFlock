@@ -7,7 +7,7 @@ const MobileNav = ({ open, setOpen, logout, home, scrollToPage }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <div
-      className={`flex justify-center py-20 fixed top-0 right-0 h-full w-[20rem] bg-white z-30 border-b-2 border-b-black transform transition-transform ${
+      className={`flex justify-center py-20 fixed border-b shadow-md w-full top-0 right-0 bg-white z-30 transform transition-transform ${
         open ? "translate-x-0" : "translate-x-full"
       }`}
     >

@@ -24,7 +24,7 @@ const Featured = () => {
   return (
     <section
       id="featured"
-      className="flex flex-col items-center justify-center px-10 py-20 text-center"
+      className="flex flex-col items-center justify-center py-20 text-center md:px-10"
     >
       <span className="text-3xl font-bold">OUR FAVOURITES</span>
       <div className="grid gap-2 my-10 md:grid-cols-2 lg:grid-cols-4">

@@ -91,7 +91,7 @@ const OrderCard = ({ product }) => {
               <img
                 src={`${process.env.REACT_APP_IMAGES_URL}/${product.image}`}
                 alt=""
-                className="h-[25rem] md:h-[12rem] md:w-[10rem]"
+                className="h-[20rem] md:h-[12rem] md:w-[10rem]"
               ></img>
 
               <button
