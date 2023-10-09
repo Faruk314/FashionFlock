@@ -94,7 +94,7 @@ const Product = () => {
       <div className="grid items-center justify-center max-w-5xl space-x-10 space-y-2 md:grid-cols-2">
         <div className="mx-auto">
           <img
-            src={`${process.env.REACT_APP_IMAGES_URL}/${product.image}`}
+            src={`${process.env.REACT_APP_IMAGES_URL}/${product?.image}`}
             alt=""
             className="object-cover"
           />
