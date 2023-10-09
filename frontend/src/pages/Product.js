@@ -118,9 +118,9 @@ const Product = () => {
 
           <div className="flex flex-col items-center mb-8 space-y-4 md:flex-row md:space-y-0 md:space-x-8">
             <div className="flex items-center space-x-2">
-              <span className="text-lg md:text-3xl">Size</span>
+              <span className="text-2xl font-bold md:text-3xl">Size</span>
               <select
-                className="py-1 pr-4 text-base border border-black outline-none md:text-lg"
+                className="py-2 pr-4 text-base border border-black outline-none md:text-lg"
                 onChange={(e) => setSize(e.target.value)}
               >
                 <option>Choose your size</option>
@@ -134,7 +134,7 @@ const Product = () => {
           </div>
 
           <div className="flex justify-between w-full mb-8">
-            <div className="flex items-center space-x-2 text-lg md:text-3xl">
+            <div className="flex items-center space-x-2 text-2xl md:text-3xl">
               <span className="hover:cursor-pointer">
                 <AiOutlineMinus onClick={() => handleQuantity("minus")} />
               </span>

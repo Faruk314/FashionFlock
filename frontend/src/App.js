@@ -12,14 +12,12 @@ import axios from "axios";
 import { getUserInfo, selectIsLoggedIn, setLogin } from "./redux/authSlice";
 import { getCart } from "./redux/cartSlice";
 import Checkout from "./pages/Checkout";
-import Loader from "./components/Loader";
 
 axios.defaults.withCredentials = true;
 
 function App() {
   const dispatch = useDispatch();
   const isLogged = useSelector(selectIsLoggedIn);
-  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const getLoginStatus = async () => {
@@ -44,13 +42,8 @@ function App() {
   useEffect(() => {
     if (isLogged) {
       dispatch(getCart());
-      setLoader(false);
     }
   }, [dispatch, isLogged]);
-
-  if (loader) {
-    return <Loader />;
-  }
 
   return (
     <BrowserRouter>
