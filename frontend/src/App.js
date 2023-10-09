@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Product from "./pages/Product";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
