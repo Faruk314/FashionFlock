@@ -84,7 +84,7 @@ const OrderCard = ({ product }) => {
 
   return (
     <div className="relative w-full text-[1rem] flex items-center justify-center">
-      <div className="flex flex-col items-center w-full space-x-5 space-y-2 md:flex-row">
+      <div className="flex flex-col items-center w-full space-y-2 md:space-x-5 md:flex-row">
         <div className="mt-2 md:border-b">
           <div className="flex flex-col space-y-2 md:flex-row md:space-y-0">
             <div className="relative">
@@ -104,9 +104,9 @@ const OrderCard = ({ product }) => {
 
             <div className="md:pl-2 md:pr-10">
               <div className="">
-                <div>
+                <div className="max-w-[15rem] md:max-w-[25rem]">
                   <span className="font-bold">Product:</span>
-                  <span className="ml-2">{product.title}</span>
+                  <span className="ml-2 break-all">{product.title}</span>
                 </div>
 
                 <h3>
