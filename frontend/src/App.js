@@ -13,6 +13,7 @@ import { getUserInfo, selectIsLoggedIn, setLogin } from "./redux/authSlice";
 import { getCart } from "./redux/cartSlice";
 import Checkout from "./pages/Checkout";
 import Loader from "./components/Loader";
+import ProtectedAuthPages from "./protection/ProtectedAuthPages";
 
 axios.defaults.withCredentials = true;
 
@@ -56,70 +57,18 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Navbar home={true} />
-              <Home />
-            </>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <>
-              <Navbar />
-              <Login />
-            </>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <>
-              <Navbar />
-              <Register />
-            </>
-          }
-        />
-        <Route
-          path="/product/:id"
-          element={
-            <>
-              <Navbar />
-              <Product />
-            </>
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            <>
-              <Navbar />
-              <Cart />
-            </>
-          }
-        />
-        <Route
-          path="/categories/:name"
-          element={
-            <>
-              <Navbar />
-              <Category />
-            </>
-          }
-        />
-        <Route
-          path="/checkout"
-          element={
-            <>
-              <Navbar />
-              <Checkout />
-            </>
-          }
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/categories/:name" element={<Category />} />
+        <Route path="/checkout" element={<Checkout />} />
+
+        <Route element={<ProtectedAuthPages />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

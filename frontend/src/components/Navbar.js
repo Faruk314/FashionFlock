@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNav from "./MobileNav";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { selectIsLoggedIn, selectUserInfo, setLogin } from "../redux/authSlice";
@@ -18,6 +18,8 @@ const Navbar = ({ home }) => {
   const cart = useSelector(selectCart);
   const userInfo = useSelector(selectUserInfo);
   const [scroll, setScroll] = useState(false);
+  const location = useLocation();
+  const hideNav = location.pathname !== "/";
 
   const handleScroll = () => {
     if (window.scrollY > 20) {
@@ -74,7 +76,7 @@ const Navbar = ({ home }) => {
             FF
           </Link>
 
-          {home && (
+          {!hideNav && (
             <div className="flex hidden space-x-4 font-medium md:block">
               <span
                 onClick={() => scrollToPage("home")}
