@@ -35,7 +35,7 @@ const Hero = () => {
           <div key={index} className="">
             <div
               style={{ backgroundImage: `url(${slide.image})` }}
-              className={`flex flex-col items-center justify-center h-[50rem] bg-no-repeat bg-cover md:bg-[center_top_-2rem]`}
+              className={`flex  flex-col items-center justify-center h-[50rem] bg-no-repeat bg-cover md:bg-[center_top_-2rem]`}
             >
               <div className="flex flex-col items-center">
                 <h1 className="text-6xl font-bold tracking-wide text-center md:text-6xl sm:text-4xl text-cyan-600">
@@ -47,7 +47,7 @@ const Hero = () => {
 
                 <button
                   onClick={() => scrollToPage("categories")}
-                  className="px-6 py-2 text-lg font-bold transition-colors bg-white border-2 text-cyan-500 border-cyan-500 hover:bg-cyan-500 hover:text-white"
+                  className="px-6 py-2 text-lg font-bold text-white transition-colors border-2 bg-cyan-600 border-cyan-600 hover:bg-white hover:text-cyan-500"
                 >
                   SHOP NOW
                 </button>

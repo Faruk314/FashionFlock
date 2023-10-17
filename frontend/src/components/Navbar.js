@@ -52,25 +52,11 @@ const Navbar = ({ home }) => {
   };
 
   return (
-    <header className="">
+    <header className="border-b shadow-sm">
       <div className="py-1 text-center text-white bg-cyan-600">
         <span className="">Shipping discount on everything!</span>
       </div>
-      <nav
-        style={
-          scroll
-            ? {
-                position: "fixed",
-                top: 0,
-                left: 0,
-                right: 0,
-                transition: "0.5s ease-in",
-                zIndex: 20,
-              }
-            : { position: "" }
-        }
-        className="flex items-center justify-between px-5 py-3 mx-auto bg-white border-b shadow-lg"
-      >
+      <nav className="flex items-center justify-between px-6 py-5 bg-white lg:mx-auto lg:px-0 max-w-7xl">
         <div className="flex items-center space-x-6">
           <Link className="text-3xl font-bold text-cyan-500" to="/">
             FF

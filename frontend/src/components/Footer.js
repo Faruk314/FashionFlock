@@ -7,7 +7,7 @@ import { MdMailOutline } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="justify-between px-10 py-5 mx-2 border-t md:flex">
+    <footer className="justify-between py-5 mx-4 border-t lg:mx-auto max-w-7xl md:flex">
       <div className="">
         <h2 className="text-3xl font-bold">ECOMMERC</h2>
 
